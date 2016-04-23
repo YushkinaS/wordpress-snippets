@@ -1,11 +1,8 @@
 # wordpress-snippets
 bootstrap theme design
 
+```php
 
-/**
- * return col-md-* class
- * column = "sidebar" or "content"
- */
 function column_class($column="sidebar") {
 	$right = is_active_sidebar( "sidebar-right" );
 	$left = is_active_sidebar( "sidebar-left" );
@@ -29,6 +26,7 @@ function column_class($column="sidebar") {
 	}
 	
 }
+```
 use in templates:
 <div id="primary" class="content-area col-md-<?php echo column_class("content"); ?>">
 <div class="wrapper col-md-<?php echo column_class("sidebar"); ?>">
