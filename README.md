@@ -1,6 +1,7 @@
 # wordpress-snippets
 bootstrap theme design
 
+Calculate bootstrap columns width
 ```php
 
 function column_class($column="sidebar") {
