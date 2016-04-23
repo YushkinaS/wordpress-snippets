@@ -28,5 +28,7 @@ function column_class($column="sidebar") {
 }
 ```
 use in templates:
+```
 <div id="primary" class="content-area col-md-<?php echo column_class("content"); ?>">
 <div class="wrapper col-md-<?php echo column_class("sidebar"); ?>">
+```
