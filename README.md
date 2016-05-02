@@ -2,6 +2,7 @@
 
 ## add meta box to wordpress admin page
 found at https://wordpress.org/plugins/megamenu/
+
 по хуку 'add_meta_boxes' почему-то не работает
 ```php
 add_action( 'admin_init', 'register_nav_meta_box', 9 );
