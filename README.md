@@ -1,5 +1,6 @@
 # wordpress-snippets
-bootstrap theme design
+
+## bootstrap theme design
 
 Calculate bootstrap columns width
 ```php
