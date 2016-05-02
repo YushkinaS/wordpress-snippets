@@ -1,5 +1,19 @@
 # wordpress-snippets
 
+## add meta box to wordpress admin page
+found at https://wordpress.org/plugins/megamenu/
+```php
+add_action( 'admin_init', 'register_nav_meta_box', 9 );
+function register_nav_meta_box() {
+        global $pagenow;
+        if ( 'nav-menus.php' == $pagenow ) {
+            add_meta_box(
+		//args here
+            );
+        }
+    }
+```    
+    
 ## bootstrap theme design
 
 Calculate bootstrap columns width
