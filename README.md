@@ -8,7 +8,7 @@ function register_nav_meta_box() {
         global $pagenow;
         if ( 'nav-menus.php' == $pagenow ) {
             add_meta_box(
-		//args here
+			//args here
             );
         }
     }
