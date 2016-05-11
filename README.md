@@ -53,11 +53,13 @@ use in templates:
 <div class="wrapper col-md-<?php echo column_class("sidebar"); ?>">
 ```
 pull and push:
+content
 ```
 <div id="primary" class="content-area col-xs-12 col-md-<?php 
 	echo column_class("content"); ?> col-md-push-<?php 
 	echo column_class("content-push"); ?>">
 ```
+left sidebar
 ```
 <div class="wrapper col-xs-12 col-md-<?php 
 	echo column_class("sidebar"); ?> col-md-pull-<?php 
