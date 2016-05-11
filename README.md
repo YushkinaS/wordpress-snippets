@@ -42,11 +42,24 @@ function column_class($column="sidebar") {
 	else if ($column == "sidebar") {
 		return $sidebar_width;
 	}
-	
+	else if ($column == "content-push") {
+		return $left ? $sidebar_width : 0;
+	}
 }
 ```
 use in templates:
 ```
 <div id="primary" class="content-area col-md-<?php echo column_class("content"); ?>">
 <div class="wrapper col-md-<?php echo column_class("sidebar"); ?>">
+```
+pull and push:
+```
+<div id="primary" class="content-area col-xs-12 col-md-<?php 
+	echo column_class("content"); ?> col-md-push-<?php 
+	echo column_class("content-push"); ?>">
+```
+```
+<div class="wrapper col-xs-12 col-md-<?php 
+	echo column_class("sidebar"); ?> col-md-pull-<?php 
+	echo column_class("content"); ?>">
 ```
