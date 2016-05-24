@@ -1,5 +1,34 @@
 # wordpress-snippets
 
+##add columns to admin posts list
+```php
+add_filter('manage_product_posts_columns','mtw_add_product_posts_columns',100);
+add_action('manage_posts_custom_column','mtw_custom_columns',10,2);
+
+function mtw_add_product_posts_columns($cols) {
+	update_option('test1',$cols);
+	unset($cols['sku']);
+	unset($cols['date']);
+	unset($cols['product_type']);
+	$cols['event_time'] = 'Event time';
+	$cols['meetup_url'] = 'Meetup URL';
+	return $cols;
+}
+
+function mtw_custom_columns( $column, $post_id ) {
+	
+	if ( 'event_time' == $column ) {
+		echo date ( 'M j, Y · H:i',get_post_meta ( $post_id, 'event_time', true ) );
+	}
+	
+	if ( 'meetup_url' == $column ) {
+		?>
+		<a href="<?php echo get_post_meta ( $post_id, 'meetup_url', true ); ?>">#</a>
+		<?php
+	}
+}
+```
+
 ## add meta box to wordpress admin page
 found at https://wordpress.org/plugins/megamenu/
 
