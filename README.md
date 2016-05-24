@@ -7,7 +7,6 @@ add_filter('manage_product_posts_columns','mtw_add_product_posts_columns',100);
 add_action('manage_posts_custom_column','mtw_custom_columns',10,2);
 
 function mtw_add_product_posts_columns($cols) {
-	update_option('test1',$cols);
 	unset($cols['sku']);
 	unset($cols['date']);
 	unset($cols['product_type']);
