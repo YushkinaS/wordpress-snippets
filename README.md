@@ -28,6 +28,18 @@ function mtw_custom_columns( $column, $post_id ) {
 	}
 }
 ```
+and make some columns sortable
+```php
+//manage_edit-{post_type}_sortable_columns 
+add_filter( 'manage_edit-product_sortable_columns', 'mtw_manage_sortable_columns');
+
+function mtw_manage_sortable_columns( $cols )
+{
+	$cols['event_time'] = 'event_time'; //column id => meta field keeping sorting value
+	return $cols;
+}
+
+```
 
 ## add meta box to wordpress admin page
 found at https://wordpress.org/plugins/megamenu/
