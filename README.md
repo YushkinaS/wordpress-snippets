@@ -2,6 +2,7 @@
 
 ##add columns to admin posts list
 ```php
+//manage_{post-type}_posts_columns
 add_filter('manage_product_posts_columns','mtw_add_product_posts_columns',100);
 add_action('manage_posts_custom_column','mtw_custom_columns',10,2);
 
