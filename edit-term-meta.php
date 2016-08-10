@@ -1,3 +1,5 @@
+//https://www.smashingmagazine.com/2015/12/how-to-use-term-meta-data-in-wordpress/
+
 add_action( 'region_add_form_fields', 'add_where_field', 10, 2 );
 function add_where_field($taxonomy) {
 
