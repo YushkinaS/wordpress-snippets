@@ -13,7 +13,7 @@ function add_where_field($taxonomy) {
 add_action( 'created_region', 'save_where_meta', 10, 2 );
 function save_where_meta( $term_id, $tt_id ){
     if( isset( $_POST['where'] ) && '' !== $_POST['where'] ){
-		$value = $_POST['where'];
+		$value = sanitize_text_field($_POST['where']);
         add_term_meta( $term_id, 'where', $value, true );
     }
 }
@@ -34,7 +34,7 @@ add_action( 'edited_region', 'update_where_meta', 10, 2 );
 function update_where_meta( $term_id, $tt_id ){
 
     if( isset( $_POST['where'] ) && '' !== $_POST['where'] ){
-        $value = $_POST['where'];
+        $value = sanitize_text_field($_POST['where']);
         update_term_meta( $term_id, 'where', $value);
     }
 }
