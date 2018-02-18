@@ -1,0 +1,41 @@
+<?php
+
+    function archive($tax='',$metakey='',$metavalue='') {
+        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+        $posts_per_page = 1;
+        $args = array(
+            'orderby'        => 'date',
+            'order'          => 'desc',
+            'number'         => $posts_per_page,
+            'paged'          => $paged
+        );
+        
+        if (isset($tax)) {
+             $args['tax'] = $tax;
+        }
+        if (isset($metakey)) {
+             $args['meta_key'] = $metakey;
+        }
+        if (isset($metavalue)) {
+             $args['meta_value'] = $metavalue;
+        }
+        
+        $uq = new WP_User_Query( $args );
+
+        if ( ! empty( $uq->results ) ) {
+            foreach ( $uq->results as $u ) {
+                echo '<p>' . $u->user_email . '</p>';
+            }
+        } else {
+            echo 'Пользователей по заданным критериям не найдено.';
+        }
+     
+        $big = 999999999; // уникальное число
+        echo paginate_links( array(
+        	'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        	'format'  => '?paged=%#%',
+        	'current' => max( 1, get_query_var('paged') ),
+        	'total'   => ceil($uq->total_users / $posts_per_page),
+        ) );
+     
+    }
